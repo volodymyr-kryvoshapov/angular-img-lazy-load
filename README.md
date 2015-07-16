@@ -1,6 +1,6 @@
 # Angular directive for lazy load images
 
-Simple, lightweight, powerful and easy to use. See the <a href="http://jsbin.com/wefidu">Demo</a>.
+Simple, lightweight and easy to use. See the <a href="http://jsbin.com/wefidu">Demo</a>.
 
 ## Installation
 Installing the plugin with bower:
@@ -14,7 +14,7 @@ or linking the minified source file manually:
 
 Then you need to add the dependency to your angular module.
 ```js
-angular.module('directivesFunApp', ['angular.lazyimg']);
+angular.module('myModule', ['angular-img-lazy-load']);
 ```
 
 ## Usage
@@ -24,11 +24,10 @@ angular.module('directivesFunApp', ['angular.lazyimg']);
 Note: the directive needs the src attribute. All other attributes are simply copied from the directive to the generated img tag.
 
 ## Options
-In your controller you can define the lazyOptions object to overwrite the default behaviour. [Here](http://jquery.eisbehr.de/lazy/index.php?c=full) you can find all options.
+In your controller you can define the lazyOptions object to overwrite the default behaviour.
 ```
-$scope.lazyOptions = {
-    effect: 'show',
-    effectTime: 2000
-};
+
+soon
+
 ```
 
