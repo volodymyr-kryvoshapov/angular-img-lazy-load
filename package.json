@@ -2,7 +2,7 @@
     "name": "angular-img-lazy-load",
     "version": "0.0.1",
     "description": "Angular directive for lazy load images",
-    "main": "img-lazy-load.js",
+    "main": "dist/angular-img-lazy-load.min.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/vladimirkr/angular-img-lazy-load.git"
