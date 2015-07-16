@@ -10,7 +10,7 @@ bower install angular-img-lazy-load --save
 
 Add dependency to angular module.
 ```js
-angular.module('myModule', ['angular-img-lazy-load']);
+angular.module('myModule', ['img-lazy-load']);
 ```
 
 ## Usage
