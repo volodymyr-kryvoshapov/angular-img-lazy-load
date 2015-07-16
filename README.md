@@ -16,7 +16,7 @@ angular.module('myModule', ['angular-img-lazy-load']);
 ## Usage
 Simply add directive to yor image instead src attribute:
 ```html
-<img src-lazy="https://placeimg.com/500/300"
+<img src-lazy="https://placeimg.com/500/300">
 ```
 Note: if you need loader: simply add it to image src attr.
 
