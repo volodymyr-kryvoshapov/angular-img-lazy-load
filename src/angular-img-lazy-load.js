@@ -34,7 +34,7 @@
             restrict: 'A',
             link: function(scope, element, attributes) {
                 imagesToLazyLoad.push(element);
-                clearInterval(isLoading); // leave only one interval handler
+                clearInterval(isLoading);
                 isLoading = setInterval(function() {
                     loadImages();
                 }, 50);
