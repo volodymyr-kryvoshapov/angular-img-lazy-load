@@ -7,17 +7,14 @@ Installing through bower:
 ```
 bower install angular-img-lazy-load --save
 ```
-or linking the minified source file manually:
-```html
-<script src="angular-img-lazy-load.min.js"></script>
-```
 
-Add dependency to main angular module.
+Add dependency to angular module.
 ```js
 angular.module('myModule', ['angular-img-lazy-load']);
 ```
 
 ## Usage
+Simply add directive to yor image instead src attribute:
 ```html
 <img src-lazy="https://placeimg.com/500/300"
 ```
