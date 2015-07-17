@@ -22,7 +22,8 @@ Note: if you need loader: simply add it to image src attr.
 
 ## Options
 Define constant in the main file of your app in order to overwrite the default behaviour.
-tolerance (default 200px) - cushion the loading of images (load images beforehand)
+
+**tolerance** - load images beforehand (default 200px)
 ```
 angular.module('myModule', ['img-lazy-load'])
   .constant('imgLazyLoadConf', {
