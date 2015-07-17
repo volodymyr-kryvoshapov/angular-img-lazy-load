@@ -2,13 +2,13 @@
     'use strict';
 
     angular.element.prototype.isVisible = function() {
-        var elem = this[0];
-        return elem.offsetWidth > 0 && elem.offsetHeight > 0;
+        var element = this[0];
+        return element.offsetWidth > 0 && element.offsetHeight > 0;
     };
 
     angular.element.prototype.inViewport = function(tolerance) {
-        var elem = this[0];
-        var rect = elem.getBoundingClientRect();
+        var element = this[0];
+        var rect = element.getBoundingClientRect();
 
         return (
             rect.top >= 0 - tolerance &&
@@ -28,12 +28,12 @@
             var imagesToLazyLoad = [];
             var isLoading = null;
 
-            function detectElement(elem) {
-                if (!elem.css('min-width')) {
-                    elem.css("min-width", '1px');
+            function detectElement(element) {
+                if (!element.css('min-width')) {
+                    element.css("min-width", '1px');
                 }
-                if (!elem.css('min-height')) {
-                    elem.css("min-height", '1px');
+                if (!element.css('min-height')) {
+                    element.css("min-height", '1px');
                 }
             }
 
