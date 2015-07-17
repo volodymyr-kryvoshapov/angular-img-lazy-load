@@ -21,10 +21,13 @@ Simply add directive to yor image instead src attribute:
 Note: if you need loader: simply add it to image src attr.
 
 ## Options
-In your controller you can define the lazyOptions object to overwrite the default behaviour.
+Define constant in the main file of your app in order to overwrite the default behaviour.
+tolerance (default 200px) - cushion the loading of images (load images beforehand)
 ```
-
-soon
+angular.module('myModule', ['img-lazy-load'])
+  .constant('imgLazyLoadConf', {
+      tolerance: 300
+  });
 
 ```
 

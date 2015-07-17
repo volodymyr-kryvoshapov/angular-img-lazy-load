@@ -7,38 +7,44 @@
 
         return (
             rect.top >= 0 - tolerance &&
-            rect.left >= 0 - tolerance &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + tolerance &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth) + tolerance
-        );
+                rect.left >= 0 - tolerance &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + tolerance &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth) + tolerance
+            );
     };
 
-    angular.module('img-lazy-load', []).directive('srcLazy', [function() {
-        var imagesToLazyLoad = [];
-        var isLoading = null;
+    angular.module('img-lazy-load', [])
 
-        function loadImages() {
-            angular.forEach(imagesToLazyLoad, function(element, key) {
-                if ($(element).is(':visible') && element.inViewport(200)) {
-                    element.attr('src', element.attr('src-lazy'));
-                    imagesToLazyLoad.splice(key, 1);
+        .constant('imgLazyLoadConf', {
+            tolerance: 200
+        })
+
+        .directive('srcLazy', ['imgLazyLoadConf', function(conf) {
+            var imagesToLazyLoad = [];
+            var isLoading = null;
+            console.log( conf.tolerance );
+            function loadImages() {
+                angular.forEach(imagesToLazyLoad, function(element, key) {
+                    if ($(element).is(':visible') && element.inViewport(conf.tolerance)) {
+                        element.attr('src', element.attr('src-lazy'));
+                        imagesToLazyLoad.splice(key, 1);
+                    }
+                });
+
+                if (imagesToLazyLoad.length == 0) {
+                    clearInterval(isLoading);
                 }
-            });
-
-            if (imagesToLazyLoad.length == 0) {
-                clearInterval(isLoading);
             }
-        }
 
-        return {
-            restrict: 'A',
-            link: function(scope, element, attributes) {
-                imagesToLazyLoad.push(element);
-                clearInterval(isLoading);
-                isLoading = setInterval(function() {
-                    loadImages();
-                }, 50);
+            return {
+                restrict: 'A',
+                link: function(scope, element, attributes) {
+                    imagesToLazyLoad.push(element);
+                    clearInterval(isLoading);
+                    isLoading = setInterval(function() {
+                        loadImages();
+                    }, 50);
+                }
             }
-        }
-    }]);
+        }]);
 })(angular, jQuery);
