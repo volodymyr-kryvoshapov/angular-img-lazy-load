@@ -7,8 +7,8 @@
     };
 
     angular.element.prototype.inViewport = function(tolerance) {
-        var element = this[0];
-        var rect = element.getBoundingClientRect();
+        var elem = this[0];
+        var rect = elem.getBoundingClientRect();
 
         return (
             rect.top >= 0 - tolerance &&
