@@ -28,6 +28,15 @@
             var imagesToLazyLoad = [];
             var isLoading = null;
 
+            function detectElement(elem) {
+                if (!elem.css('min-width')) {
+                    elem.css("min-width", '1px');
+                }
+                if (!elem.css('min-height')) {
+                    elem.css("min-height", '1px');
+                }
+            }
+
             function loadImages() {
                 angular.forEach(imagesToLazyLoad, function(element, key) {
                     if (element.isVisible() && element.inViewport(conf.tolerance)) {
@@ -45,12 +54,7 @@
                 restrict: 'A',
                 link: function(scope, element, attributes) {
                     if (conf.detectElement) {
-                        if (!element.css('min-width')) {
-                            element.css("min-width", '1px');
-                        }
-                        if (!element.css('min-height')) {
-                            element.css("min-height", '1px');
-                        }
+                        detectElement(element);
                     }
                     imagesToLazyLoad.push(element);
                     clearInterval(isLoading);
