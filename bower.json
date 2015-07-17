@@ -1,6 +1,6 @@
 {
   "name": "angular-img-lazy-load",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "homepage": "https://github.com/vladimirkr/angular-img-lazy-load",
   "authors": [
     "Vladimir Krivoshapov <v.kryvoshapov@gmail.com>"
@@ -24,7 +24,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "angular": ">=1.2.0",
-    "jquery": ">=1.3.2"
+    "angular": ">=1.2.0"
   }
 }
