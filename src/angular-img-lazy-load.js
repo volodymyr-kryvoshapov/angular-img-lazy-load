@@ -36,7 +36,7 @@
                     }
                 });
 
-                if (imagesToLazyLoad.length == 0) {
+                if (imagesToLazyLoad.length === 0) {
                     clearInterval(isLoading);
                 }
             }
@@ -45,7 +45,12 @@
                 restrict: 'A',
                 link: function(scope, element, attributes) {
                     if (conf.detectElement) {
-                        element.css({"min-width": '1px', "min-height": '1px'});
+                        if (!element.css('min-width')) {
+                            element.css("min-width", '1px');
+                        }
+                        if (!element.css('min-height')) {
+                            element.css("min-height", '1px');
+                        }
                     }
                     imagesToLazyLoad.push(element);
                     clearInterval(isLoading);
@@ -53,6 +58,6 @@
                         loadImages();
                     }, 50);
                 }
-            }
+            };
         }]);
 })(angular);
