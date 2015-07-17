@@ -22,7 +22,7 @@
         .directive('srcLazy', ['imgLazyLoadConf', function(conf) {
             var imagesToLazyLoad = [];
             var isLoading = null;
-            console.log( conf.tolerance );
+
             function loadImages() {
                 angular.forEach(imagesToLazyLoad, function(element, key) {
                     if ($(element).is(':visible') && element.inViewport(conf.tolerance)) {
