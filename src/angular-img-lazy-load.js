@@ -29,10 +29,10 @@
             var isLoading = null;
 
             function detectElement(element) {
-                if (!element.css('min-width')) {
+                if (!element.css('min-width') || element.css('min-width') === '0px') {
                     element.css("min-width", '1px');
                 }
-                if (!element.css('min-height')) {
+                if (!element.css('min-height') || element.css('min-height') === '0px') {
                     element.css("min-height", '1px');
                 }
             }
