@@ -21,7 +21,10 @@
     angular.module('img-lazy-load', [])
         .constant('imgLazyLoadConf', {
             tolerance: 200,
-            detectElement: true
+            detectElement: true,
+            loadAction: function(element) {
+                element.attr('src', element.attr('src-lazy'));
+            }
         })
 
         .directive('srcLazy', ['imgLazyLoadConf', function(conf) {
@@ -40,7 +43,7 @@
             function loadImages() {
                 angular.forEach(imagesToLazyLoad, function(element, key) {
                     if (element.isVisible() && element.inViewport(conf.tolerance)) {
-                        element.attr('src', element.attr('src-lazy'));
+                        conf.loadAction(element);
                         imagesToLazyLoad.splice(key, 1);
                     }
                 });
